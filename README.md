@@ -26,7 +26,13 @@ Imagine the data points amount has increased to 4 MB of data. What strategies wo
 ## Energy Price Calculator
 
 There are available energy market orders you can buy like the list array below. You can execute part of an order, for example: you can acquire 5 MW from a 10 MW volume order.
-Write a function in Javascript and necessary tests to run it that will have as input: a list of available orders, the desire volume and return the lowest weighted average price to meet that desire volume.
+Write a function in Javascript and necessary tests to run it that will have as input:
+
+* list of available orders
+* the desire volume
+
+Function should return the lowest weighted average price to meet that desire volume.
+
 It should work for different input volumes.
+
 For example: How much would I have to pay to buy 8 MW given the list below? What would the output be if I wanted to buy 1000 MW?
-The list below is an example of  an array of orders with price in Euros/MW and volume in MW to use as input.
