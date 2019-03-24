@@ -8,6 +8,8 @@ export interface TOrder {
   volume: Volume; // Mega Watts
 }
 
+// Task was to design the function, but for the better code testability I would compose a class with more fine grained methods in it, in order to better encapsulate small utilities.
+// I marked the steps that IMHO deserve for separate abstraction.
 function energyCalculator(orders: TOrder[], desiredVolume: Volume): Price {
   let volumeToGo: number = 0;
   const selectedOrders = orders

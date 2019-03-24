@@ -36,3 +36,17 @@ Function should return the lowest weighted average price to meet that desire vol
 It should work for different input volumes.
 
 For example: How much would I have to pay to buy 8 MW given the list below? What would the output be if I wanted to buy 1000 MW?
+
+### ✅Result
+
+Find the code for  [calculating lowest weighted average price for MW](https://github.com/mifrej/wattsight/tree/master/src/lib/energy-calculator). Run the result function with:
+
+  ```bash
+    yarn calculate
+  ```
+
+Runt tests for the function with:
+
+  ```bash
+    yarn test src/lib/energy-calculator
+  ```
