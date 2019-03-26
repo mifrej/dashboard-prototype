@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "name": "with-jest-typescript",
   "version": "1.0.0",
   "scripts": {
@@ -13,9 +14,11 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "chart.js": "^2.8.0",
     "next": "^8.0.3",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "styled-jsx": "^3.2.1"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
@@ -24,6 +27,7 @@
     "@types/node": "^11.11.6",
     "@types/react": "^16.0.41",
     "@types/react-dom": "^16.0.4",
+    "@types/styled-jsx": "^2.2.8",
     "@zeit/next-typescript": "1.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",

@@ -1,0 +1,34 @@
+@import "normalize.css";
+
+:root {
+  /* Basic colors */
+  --black: #000;
+  --white: #fff;
+
+  /* Colors - semantic palette */
+  --primary: #357ca2;
+  --secondary: #a61d39;
+  --success: #3f2ab1;
+  --warning: #dcb400;
+  --alert: #9f1d22;
+
+  /* Colors - gray palette */
+  --light-gray: #f5f5f5;
+  --medium-gray: #ebebeb;
+  --dark-gray: #9a9a9a;
+  --box-shadow-color1: rgba(9, 30, 66, 0.25);
+  --box-shadow-color2: rgba(9, 30, 66, 0.31);
+
+  /* Colors - blue palette */
+  --dark-blue: #172b53;
+  --light-blue: rgba(126, 171, 196, 1);
+
+  /* z-index stack properties */
+  --z-index-top: 4;
+  --z-index-higher: 3;
+  --z-index-high: 2;
+  --z-index-normal: 1;
+  --z-index-low: -1;
+  --z-index-lower: -2;
+  --max-width: 1000px;
+}

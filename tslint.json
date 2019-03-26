@@ -13,6 +13,7 @@
       true,
       "ignore-same-line"
     ],
+    "jsx-no-lambda": [false],
     "function-name": [false],
     "interface-name": [
       true,
