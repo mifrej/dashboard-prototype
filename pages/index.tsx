@@ -1,5 +1,5 @@
-const IndexPage = () => (
-  <h1>Testing Next.js App written in TypeScript with Jest</h1>
-);
+import Dashboard from '../src/components/dashboard/dashboard';
 
-export default IndexPage;
+const Index = () => <Dashboard />;
+
+export default Index;

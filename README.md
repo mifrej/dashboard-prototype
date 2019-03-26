@@ -2,21 +2,27 @@
 
 ## Dashboard
 
-Create a dashboard web application. The application should display the sample data using different visual elements (like different chart types, tables).
+Create a dashboard web application.
 The application should:
-Add/remove rows dynamically on the dashboard
-Add/remove elements dynamically
+
+* Display the sample data using different visual elements (like different chart types, tables)
+* Add/remove rows dynamically on the dashboard
+* Add/remove elements dynamically
+
 These elements (charts and tables) can come from a pre-defined list (there is no need to have a lot of different types of these elements, just enough to place a few side by side, even if it means repeating them)
 
 Use the data file in attachment as the data source. This data is energy hourly price (€/MWh) for Germany.
+
 We would like to understand how you would use ReactJS to create this application:
-How you approach the problem?
-How you structure your code?
-How you use components, state and props?
-How you use component's lifecycle?
+* How you approach the problem?
+* How you structure your code?
+* How you use components, state and props?
+* How you use component's lifecycle?
 
 You can use  https://github.com/facebook/create-react-app to get it up and running. You can use other third party libraries.
+
 There should not be a big effort put on design, but it should be user friendly.
+
 Bonus points for the use of tools like webpack and npm or yarn as well as including tests.
 
 ### Follow up questions

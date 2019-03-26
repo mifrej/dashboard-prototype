@@ -1,0 +1,5 @@
+/* Custom Media Queries  */
+@custom-media --phone (max-width: 544px);
+@custom-media --tablet (min-width: 768px);
+@custom-media --desktop (min-width: 992px);
+@custom-media --large-desktop (min-width: 1200px);
