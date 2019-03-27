@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import onClickOutside from 'react-onclickoutside';
 
 interface ListItem {
   label: string;
@@ -11,23 +12,12 @@ interface Props {
 
 const Dropdown = (props: Props) => {
   const [open, setOpen] = useState(false);
+  const toggle = () => setOpen(!open);
+
+  Dropdown.handleClickOutside = () => setOpen(false);
   return (
     <div className="dropdown">
-      <style jsx>{`
-        li {
-          list-style: none;
-        }
-      `}</style>
-      <button
-        onClick={e =>
-          setOpen(currentState => {
-            // e.preventDefault();
-            return !currentState;
-          })
-        }
-      >
-        {props.label}
-      </button>
+      <button onClick={toggle}>{props.label}</button>
       {open && (
         <ul>
           {props.list.map((item, key) => (
@@ -39,8 +29,23 @@ const Dropdown = (props: Props) => {
           ))}
         </ul>
       )}
+      <style jsx>{`
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+        li {
+          list-style: none;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default Dropdown;
+
+
+const clickOutsideConfig = {
+  handleClickOutside: () => Dropdown.handleClickOutside,
+};
+
+export default onClickOutside(Dropdown, clickOutsideConfig);
