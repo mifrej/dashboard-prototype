@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Card } from '../card/card';
 
+interface ListItem {
+  label: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
 interface Props {
   label: string;
-  list: Card[];
-  onClick: () => void;
+  list: ListItem[];
 }
 
 const Dropdown = (props: Props) => {
-  const [open, toggle] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <div className="dropdown">
       <style jsx>{`
@@ -18,7 +20,7 @@ const Dropdown = (props: Props) => {
       `}</style>
       <button
         onClick={e =>
-          toggle(currentState => {
+          setOpen(currentState => {
             // e.preventDefault();
             return !currentState;
           })
@@ -30,7 +32,9 @@ const Dropdown = (props: Props) => {
         <ul>
           {props.list.map((item, key) => (
             <li key={key.toString()}>
-              <button>{item.title}</button>
+              <button onClick={event => item.onClick(event)}>
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>

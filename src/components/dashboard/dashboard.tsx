@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import Card from '../card/card';
+import Dropdown from '../dropdown/dropdown';
 import Header from '../header/header';
 import Meta from '../meta/meta';
-import Dropdown from '../dropdown/dropdown';
+import EnergyHourly from './energy-hourly-sample';
 
-interface Props {}
+interface Props {
+  data: {}; // static data sample for all cards
+}
 
 const Dashboard: React.FunctionComponent<Props> = (
   props: Props,
 ): JSX.Element => {
-  const initialData = []; // data set for card
-  const initialCardTypes = ['chart', 'grid'];
-  const initialCards: Card[] = [{ title: 'Chart Title', type: 'chart' }];
-  const [data] = useState(initialData);
-  const [cardTypes] = useState(initialCardTypes);
+  // All Cards displayed on the dashboard
+  const initialCards: string[] = [];
   const [cards, addCard] = useState(initialCards);
+  const { data } = props;
   return (
     <main>
       <Meta />
@@ -21,9 +23,22 @@ const Dashboard: React.FunctionComponent<Props> = (
       <section>
         <Dropdown
           label="Add Card"
-          list={cards}
-          onClick={() => addCard(cards)}
+          list={[
+            {
+              label: 'Chart',
+              onClick: () =>
+                addCard(currentCards => {
+                  const newCard = { data, title: 'Some Card', type: 'chart' };
+                  return [newCard, ...currentCards];
+                }),
+            },
+          ]}
         />
+      </section>
+      <section className="cardsRow">
+        {cards.map((card, id) => (
+          <Card key={id.toString()} card={card} data={EnergyHourly} />
+        ))}
       </section>
     </main>
   );

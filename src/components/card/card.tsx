@@ -1,25 +1,18 @@
 import React from 'react';
 import ChartComponent from '../chart/chart';
-import EnergyHourly from './energy-hourly-sample';
 
-export interface Card {
+interface Props {
+  data: {}; // mark for the data shape
   title: string;
   type: string;
 }
 
-interface Props {
-  data: {};
-  card: Card;
-}
-
 const Card = (props: Props) => {
-  const dataReduced = () => {
-    return EnergyHourly;
-  };
   return (
     <>
-      <h2>{props.card.title}</h2>
-      <ChartComponent data={dataReduced()} />
+      <h2>{props.title}</h2>
+      {/* Proper type of widget should be loaded */}
+      <ChartComponent data={props.data} />
     </>
   );
 };
