@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../card/card';
 import Dropdown from '../dropdown/dropdown';
-import Header from '../header/header';
-import Meta from '../meta/meta';
 import EnergyHourly from './energy-hourly-sample';
 
 interface Props {
@@ -17,9 +15,7 @@ const Dashboard: React.FunctionComponent<Props> = (
   const [cards, addCard] = useState(initialCards);
   const { data } = props;
   return (
-    <main>
-      <Meta />
-      <Header />
+    <>
       <section>
         <Dropdown
           label="Add Card"
@@ -40,7 +36,7 @@ const Dashboard: React.FunctionComponent<Props> = (
           <Card key={id.toString()} card={card} data={EnergyHourly} />
         ))}
       </section>
-    </main>
+    </>
   );
 };
 
