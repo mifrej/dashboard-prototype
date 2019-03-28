@@ -15,10 +15,40 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { data, id, onClick } = props;
   return (
     <section className="dashboardRow">
+      <style jsx>{`
+        .dashboardRow {
+          border: solid var(--border-width-default) var(--light-gray);
+          border-radius: var(--border-radius-default);
+          box-shadow: 0 1px 1px var(--box-shadow-color1);
+          margin-bottom: var(--margin-bottom-default);
+        }
+      `}</style>
       <header>
-        <h2>Row {id}</h2>
-        <button onClick={onClick}>Remove Row 🗑</button>
+        <h2>
+          Row <em>{id.split('-')[0]}</em>
+        </h2>
+        <button className="alert" onClick={onClick}>-</button>
       </header>
+      <style jsx>{`
+        header {
+          display: flex;
+          justify-self: end;
+          margin-bottom: 0.5em;
+          padding: 0.5em 1em;
+          background-color: var(--light-gray);
+          & h2 {
+            font-size: 1.2em;
+            margin: 0;
+            line-height: 1;
+          }
+          & button {
+            align-items: center;
+            font-size: 1em;
+            margin-left: 0.5em;
+            padding: 0 0.5em 0.2em;
+          }
+        }
+      `}</style>
       <div className="rowContent">
         {cards.map((card, idx) => (
           <Card key={idx.toString()} card={card} data={data} />
@@ -37,6 +67,16 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           ]}
         />
       </div>
+      <style jsx global>{`
+        .rowContent {
+          display: flex;
+          padding: 0.5em 0 0.5em;
+
+          & .toggleButton {
+            padding: 3em;
+          }
+        }
+      `}</style>
     </section>
   );
 };

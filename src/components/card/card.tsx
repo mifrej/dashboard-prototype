@@ -9,11 +9,16 @@ interface Props {
 
 const Card = (props: Props) => {
   return (
-    <>
+    <div className="card">
       <h2>{props.title}</h2>
       {/* Proper type of widget should be loaded */}
       <ChartComponent data={props.data} />
-    </>
+      <style jsx>{`
+        .card {
+          width: 10em;
+        }
+      `}</style>
+    </div>
   );
 };
 

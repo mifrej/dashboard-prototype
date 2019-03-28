@@ -23,6 +23,14 @@
   --dark-blue: #172b53;
   --light-blue: rgba(126, 171, 196, 1);
 
+  /**
+   * Defaults
+  */
+  --margin-bottom-default: 1rem;
+  --border-radius-default: 4px;
+  --border-width-default: 1px;
+
+
   /* z-index stack properties */
   --z-index-top: 4;
   --z-index-higher: 3;

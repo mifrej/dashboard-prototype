@@ -17,7 +17,7 @@ const Dropdown = (props: Props) => {
   Dropdown.handleClickOutside = () => setOpen(false);
   return (
     <div className="dropdown">
-      <button onClick={toggle}>{props.label}</button>
+      <button className="toggleButton" onClick={toggle}>{props.label}</button>
       {open && (
         <ul>
           {props.list.map((item, key) => (
@@ -30,6 +30,9 @@ const Dropdown = (props: Props) => {
         </ul>
       )}
       <style jsx>{`
+        .dropdown {
+          display: inline-flex;
+        }
         ul {
           margin: 0;
           padding: 0;

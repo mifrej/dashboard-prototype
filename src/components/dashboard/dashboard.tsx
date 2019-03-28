@@ -19,16 +19,26 @@ const Dashboard: React.FunctionComponent<Props> = (
 
   return (
     <div className="dashboard">
-      <button
-        onClick={() =>
-          updateRows(currentRows => {
-            const newRow = { id: uuidv1() };
-            return [...currentRows, newRow];
-          })
+      <header>
+        <button
+          className="primary"
+          onClick={() =>
+            updateRows(currentRows => {
+              const newRow = { id: uuidv1() };
+              return [...currentRows, newRow];
+            })
+          }
+        >
+          Add Row +
+        </button>
+      </header>
+      <style jsx>{`
+        header {
+          padding: 0 0 0.5em;
+          border-bottom: solid var(--border-width-default) var(--medium-gray);
+          margin-bottom: var(--margin-bottom-default);
         }
-      >
-        Add Row
-      </button>
+      `}</style>
       {rows.map(row => (
         <Row
           data={data}
