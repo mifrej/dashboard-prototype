@@ -13,6 +13,7 @@
     "calculate": "ts-node ./src/lib/energy-calculator"
   },
   "dependencies": {
+    "@types/uuid": "^3.4.4",
     "@zeit/next-css": "^1.0.1",
     "chart.js": "^2.8.0",
     "next": "^8.0.3",
@@ -21,13 +22,16 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-onclickoutside": "^6.8.0",
-    "styled-jsx": "^3.2.1"
+    "styled-jsx": "^3.2.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
+    "@types/chart.js": "^2.7.50",
     "@types/jest": "^23.0.0",
     "@types/next": "^8.0.3",
     "@types/node": "^11.11.6",
+    "@types/nprogress": "^0.0.29",
     "@types/react": "^16.0.41",
     "@types/react-dom": "^16.0.4",
     "@types/react-onclickoutside": "^6.7.2",

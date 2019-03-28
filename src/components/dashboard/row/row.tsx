@@ -4,23 +4,24 @@ import Dropdown from '../../dropdown/dropdown';
 
 interface Props {
   data: {}; // static data sample for all cards
-  key: string;
+  id: string;
+  onClick: () => void;
 }
 
 const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   // All Cards displayed on the dashboard
   const initialCards: string[] = [];
   const [cards, addCard] = useState(initialCards);
-  const { data, key } = props;
+  const { data, id, onClick } = props;
   return (
     <section className="dashboardRow">
       <header>
-        <h2>Row {key}</h2>
-        <button>Remove Row 🗑</button>
+        <h2>Row {id}</h2>
+        <button onClick={onClick}>Remove Row 🗑</button>
       </header>
       <div className="rowContent">
-        {cards.map((card, id) => (
-          <Card key={id.toString()} card={card} data={data} />
+        {cards.map((card, idx) => (
+          <Card key={idx.toString()} card={card} data={data} />
         ))}
         <Dropdown
           label="Add Card"
