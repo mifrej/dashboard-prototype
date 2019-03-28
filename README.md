@@ -25,6 +25,34 @@ There should not be a big effort put on design, but it should be user friendly.
 
 Bonus points for the use of tools like webpack and npm or yarn as well as including tests.
 
+### ✅Result
+
+#### Components composition
+
+```text
+_app (custom wrapper for next.js)
+  └─page
+    │ └─index (root route)
+    │     └─dashboard
+    │         └─row
+    │            └─card
+    │               ├─chart
+    │               └─grid
+    │
+    ├─meta (basic meta tags)
+    └─header (header title and navigation placeholder)
+```
+## TO DO
+
+- [ ] fix on click outside with dropdown
+- [ ] card like wrapper for "add card" dropdown (styling)
+- [ ] card header with title and remove functionality
+- [ ] grid type generic component
+- [ ] better styling for main header
+- [ ] svg icons for better visual effect
+- [ ] responsive adaptations
+- [ ] tests
+
 ### Follow up questions
 
 Imagine the data points amount has increased to 4 MB of data. What strategies would you use to insure the app would not lose performance? Think about data download and data visualisation.
