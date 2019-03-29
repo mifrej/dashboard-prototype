@@ -29,11 +29,10 @@ const ChartComponent: React.SFC<Props> = (props: Props): JSX.Element => {
   const { data, id } = props;
   let chartInstance = null;
   useEffect(() => {
-    console.log(data)
-    chartInstance = new Chart(canvasEl.current, { data, type: 'line' });
+    chartInstance = new Chart(canvasEl.current, { data: { datasets: [ { label: 'H', data } ] }, type: 'scatter' });
     chartInstance.update();
   });
-  return <canvas id={id} ref={canvasEl} width="400" height="400" />;
+  return <canvas id={id} ref={canvasEl} />;
 };
 
 export default ChartComponent;

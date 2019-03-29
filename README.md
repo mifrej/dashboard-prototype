@@ -46,10 +46,10 @@ _app (custom wrapper for next.js)
 
 - [x] fix on click outside with dropdown
 - [x] card like wrapper for "add card" dropdown (styling)
-- [ ] card header with title and remove functionality
+- [x] card header with title and remove functionality
 - [ ] grid type generic component
 - [ ] better styling for main header
-- [ ] svg icons for better visual effect
+- [x] svg icons for better visual effect
 - [ ] responsive adaptations
 - [ ] tests
 - [ ] Check `Text content did not match. Server: "9b1d6583" Client: "c7d94dee"` warning on page load
