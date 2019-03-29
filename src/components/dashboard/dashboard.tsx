@@ -45,7 +45,7 @@ const Dashboard: React.FunctionComponent<Props> = (
         <Row
           data={data}
           id={row.id}
-          key={row.id.toString()}
+          key={row.id}
           onClick={() =>
             updateRows(currentRows =>
               currentRows.filter(item => item.id !== row.id),

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Card from '../../card/card';
-import Dropdown from '../../dropdown/dropdown';
+import uuidv1 from 'uuid';
+import Card, { CardProps } from '../../card/card';
+import Dropdown, { ListItem } from '../../dropdown/dropdown';
 import Icon from '../../icon/icon';
 
 interface Props {
@@ -11,26 +12,32 @@ interface Props {
 
 const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   // All Cards displayed on the dashboard
-  const initialCards: string[] = [];
-  const [cards, addCard] = useState(initialCards);
+  const initialCards: CardProps[] = [];
+  const [cards, updateCards] = useState(initialCards);
   const { data, id, onClick } = props;
   const cardTypes = ['chart', 'grid'];
-  const dropDownList = cardTypes.reduce(
-    (carry, type) => [
+
+  // build list for cards dropdown
+  const dropDownList: ListItem[] = cardTypes.reduce(
+    (carry: ListItem[], type) => [
       {
         label: type.toUpperCase(),
         onClick: () =>
-          addCard(currentCards => {
+          updateCards(currentCards => {
             const count = currentCards.length + 1;
-            const newCard = { data, type, title: `${type} ${count}` };
-            return [newCard, ...currentCards];
+            const newCard = {
+              data,
+              id: uuidv1(),
+              title: `${type} ${count}`,
+              type,
+            };
+            return [...currentCards, newCard];
           }),
       },
       ...carry,
     ],
     [],
   );
-  console.log(dropDownList);
   return (
     <section className="dashboardRow">
       <style jsx>{`
@@ -79,9 +86,18 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         }
       `}</style>
       <div className="rowContent">
-        {cards.map((card, idx) => (
-          <Card key={idx.toString()} card={card} data={data} />
-        ))}
+        {cards.length > 0 &&
+          cards.map((card: CardProps, idx: number) => (
+            <Card
+              key={idx.toString()}
+              {...card}
+              onClick={() =>
+                updateCards((currentCards: CardProps[]) =>
+                  currentCards.filter(item => item.id !== card.id),
+                )
+              }
+            />
+          ))}
         <Dropdown
           label={<Icon size="80" name="baseline-add_circle-24px" />}
           list={dropDownList}

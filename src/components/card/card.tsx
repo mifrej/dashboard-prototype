@@ -1,18 +1,26 @@
 import React from 'react';
 import ChartComponent from '../chart/chart';
+import Icon from '../icon/icon';
 
-interface Props {
+export interface CardProps {
   data: {}; // mark for the data shape
+  id: string;
+  onClick: () => void;
   title: string;
   type: string;
 }
 
-const Card = (props: Props) => {
+const Card = (props: CardProps) => {
+  const { data, onClick, title } = props;
   return (
     <div className="card">
-      <h2>{props.title}</h2>
-      {/* Proper type of widget should be loaded */}
-      <ChartComponent data={props.data} />
+      <header>
+        <h3>{title}</h3>
+        <button className="alert deleteRow" onClick={onClick}>
+          <Icon size="20" name="baseline-delete-24px" />
+        </button>
+      </header>
+      <ChartComponent data={data} />
       <style jsx>{`
         .card {
           width: var(--card-dimension);

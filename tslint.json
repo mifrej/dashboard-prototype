@@ -23,6 +23,7 @@
     "jsx-boolean-value": [false],
     "no-implicit-dependencies": false,
     "no-submodule-imports": [false],
+    "object-shorthand-properties-first": [false],
     "prettier": [true],
     "react-hooks-nesting": "error",
     "variable-name": [

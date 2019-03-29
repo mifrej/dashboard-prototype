@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
 
-interface ListItem {
+export interface ListItem {
   label: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
