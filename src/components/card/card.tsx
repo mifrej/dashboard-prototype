@@ -15,7 +15,8 @@ const Card = (props: Props) => {
       <ChartComponent data={props.data} />
       <style jsx>{`
         .card {
-          width: 10em;
+          width: var(--card-dimension);
+          height: var(--card-dimension);
         }
       `}</style>
     </div>

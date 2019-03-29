@@ -52,6 +52,7 @@ _app (custom wrapper for next.js)
 - [ ] svg icons for better visual effect
 - [ ] responsive adaptations
 - [ ] tests
+- [ ] Check `Text content did not match. Server: "9b1d6583" Client: "c7d94dee"` warning on page load
 
 ### Follow up questions
 

@@ -39,4 +39,7 @@
   --z-index-low: -1;
   --z-index-lower: -2;
   --max-width: 1000px;
+
+  /* component specifics */
+  --card-dimension: 14em;
 }

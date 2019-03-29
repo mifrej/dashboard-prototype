@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../../card/card';
 import Dropdown from '../../dropdown/dropdown';
+import Icon from '../../icon/icon';
 
 interface Props {
   data: {}; // static data sample for all cards
@@ -27,7 +28,9 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         <h2>
           Row <em>{id.split('-')[0]}</em>
         </h2>
-        <button className="alert" onClick={onClick}>-</button>
+        <button className="alert" onClick={onClick}>
+          <Icon size="20" name="baseline-delete-24px" />
+        </button>
       </header>
       <style jsx>{`
         header {
@@ -70,10 +73,15 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       <style jsx global>{`
         .rowContent {
           display: flex;
+          flex-wrap: wrap;
           padding: 0.5em 0 0.5em;
 
           & .toggleButton {
-            padding: 3em;
+            width: var(--card-dimension);
+            height: var(--card-dimension);
+            text-align: center;
+            padding: 0;
+            border-radius: 25%;
           }
         }
       `}</style>
