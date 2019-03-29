@@ -24,11 +24,9 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         label: type.toUpperCase(),
         onClick: () =>
           updateCards(currentCards => {
-            const count = currentCards.length + 1;
             const newCard = {
               data,
               id: uuidv1(),
-              title: `${type} ${count}`,
               type,
             };
             return [...currentCards, newCard];
@@ -50,7 +48,7 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       `}</style>
       <header>
         <h2>
-          Row <em>{id.split('-')[0]}</em>
+          Row: <em>{id.split('-')[0]}</em>
         </h2>
         <button className="alert deleteRow" onClick={onClick}>
           <Icon size="20" name="baseline-delete-24px" />
@@ -72,7 +70,8 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           & button {
             font-size: 1em;
             margin-left: 0.5em;
-            border-radius: 25%;
+            border-radius: 50%;
+            padding: 0.3em;
           }
         }
       `}</style>

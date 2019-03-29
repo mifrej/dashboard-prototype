@@ -30,7 +30,6 @@ const ChartComponent: React.SFC<Props> = (props: Props): JSX.Element => {
   let chartInstance = null;
   useEffect(() => {
     console.log(data)
-    console.log(canvasEl.current)
     chartInstance = new Chart(canvasEl.current, { data, type: 'line' });
     chartInstance.update();
   });
