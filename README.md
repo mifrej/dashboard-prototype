@@ -44,8 +44,8 @@ _app (custom wrapper for next.js)
 ```
 ## TO DO
 
-- [ ] fix on click outside with dropdown
-- [ ] card like wrapper for "add card" dropdown (styling)
+- [x] fix on click outside with dropdown
+- [x] card like wrapper for "add card" dropdown (styling)
 - [ ] card header with title and remove functionality
 - [ ] grid type generic component
 - [ ] better styling for main header

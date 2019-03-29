@@ -91,13 +91,15 @@ const Page = ({ children }: { children: React.SFC<any> }) => {
           border-radius: var(--border-radius-default);
           background-color: var(--light-gray);
           border: solid var(--border-width-default) var(--medium-gray);
-          padding: 0.5em 1em;
+          padding: 0.5em 0.8em;
         }
         button.primary,
         button.alert {
           color: var(--white);
           & svg {
             fill: var(--white);
+            vertical-align: bottom;
+            padding: 0 0.5em;
           }
         }
         button.primary {

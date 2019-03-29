@@ -6,7 +6,7 @@ interface ListItem {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 interface Props {
-  label: string;
+  label: string | JSX.Element;
   list: ListItem[];
 }
 
@@ -20,8 +20,8 @@ const Dropdown = (props: Props) => {
       <button className="toggleButton">{props.label}</button>
       {open && (
         <ul>
-          {props.list.map((item, key) => (
-            <li key={key.toString()}>
+          {props.list.map((item, idx) => (
+            <li key={idx.toString()}>
               <button onClick={event => item.onClick(event)}>
                 {item.label}
               </button>
@@ -36,16 +36,26 @@ const Dropdown = (props: Props) => {
         }
         ul {
           position: absolute;
-          left: 50%;
-          top: 50%;
+          right: 0;
+          top: 0;
           margin: 0;
           padding: 0;
           transition: 0.25s ease all;
           transform-origin: 0 1;
-          box-shadow: 0 1px 1px var(--box-shadow-color1);
+          box-shadow: -2px 0 5px var(--box-shadow-color1);
         }
         li {
           list-style: none;
+          background-color: var(--black);
+          color: var(--white);
+          text-align: center;
+          border-bottom: 1px solid var(--white);
+          & button {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            width: 8em;
+          }
         }
       `}</style>
     </div>

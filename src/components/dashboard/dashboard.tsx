@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import uuidv1 from 'uuid';
+import Icon from '../icon/icon';
 import Row from './row/row';
 
 interface Row {
@@ -29,7 +30,8 @@ const Dashboard: React.FunctionComponent<Props> = (
             })
           }
         >
-          Add Row +
+          <span>Add Row</span>
+          <Icon size="20" name="baseline-add_circle-24px" />
         </button>
       </header>
       <style jsx>{`

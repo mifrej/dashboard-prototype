@@ -14,6 +14,23 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const initialCards: string[] = [];
   const [cards, addCard] = useState(initialCards);
   const { data, id, onClick } = props;
+  const cardTypes = ['chart', 'grid'];
+  const dropDownList = cardTypes.reduce(
+    (carry, type) => [
+      {
+        label: type.toUpperCase(),
+        onClick: () =>
+          addCard(currentCards => {
+            const count = currentCards.length + 1;
+            const newCard = { data, type, title: `${type} ${count}` };
+            return [newCard, ...currentCards];
+          }),
+      },
+      ...carry,
+    ],
+    [],
+  );
+  console.log(dropDownList);
   return (
     <section className="dashboardRow">
       <style jsx>{`
@@ -28,13 +45,14 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         <h2>
           Row <em>{id.split('-')[0]}</em>
         </h2>
-        <button className="alert" onClick={onClick}>
+        <button className="alert deleteRow" onClick={onClick}>
           <Icon size="20" name="baseline-delete-24px" />
         </button>
       </header>
       <style jsx>{`
         header {
           display: flex;
+          align-items: center;
           justify-self: end;
           margin-bottom: 0.5em;
           padding: 0.5em 1em;
@@ -45,10 +63,18 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
             line-height: 1;
           }
           & button {
-            align-items: center;
             font-size: 1em;
             margin-left: 0.5em;
-            padding: 0 0.5em 0.2em;
+            border-radius: 25%;
+          }
+        }
+      `}</style>
+      <style jsx global>{`
+        .dashboardRow {
+          & button.deleteRow {
+            & svg {
+              padding: 0;
+            }
           }
         }
       `}</style>
@@ -57,22 +83,14 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           <Card key={idx.toString()} card={card} data={data} />
         ))}
         <Dropdown
-          label="Add Card"
-          list={[
-            {
-              label: 'Chart',
-              onClick: () =>
-                addCard(currentCards => {
-                  const newCard = { data, title: 'Some Card', type: 'chart' };
-                  return [newCard, ...currentCards];
-                }),
-            },
-          ]}
+          label={<Icon size="80" name="baseline-add_circle-24px" />}
+          list={dropDownList}
         />
       </div>
       <style jsx global>{`
         .rowContent {
           display: flex;
+          align-content: center;
           flex-wrap: wrap;
           padding: 0.5em 0 0.5em;
 
@@ -81,7 +99,10 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
             height: var(--card-dimension);
             text-align: center;
             padding: 0;
-            border-radius: 25%;
+            border-radius: 10%;
+            & svg {
+              fill: var(--dark-gray);
+            }
           }
         }
       `}</style>
