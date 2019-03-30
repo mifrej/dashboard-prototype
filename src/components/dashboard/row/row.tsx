@@ -4,17 +4,18 @@ import Card, { CardProps } from '../../card/card';
 import Dropdown, { ListItem } from '../../dropdown/dropdown';
 import Icon from '../../icon/icon';
 
-interface Props {
-  data: {}; // static data sample for all cards
+interface RowProps {
   id: string;
   onClick: () => void;
 }
 
-const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Row: React.FunctionComponent<RowProps> = (
+  props: RowProps,
+): JSX.Element => {
   // All Cards displayed on the dashboard
   const initialCards: CardProps[] = [];
   const [cards, updateCards] = useState(initialCards);
-  const { data, id, onClick } = props;
+  const { id, onClick } = props;
   const cardTypes = ['chart', 'grid'];
 
   // build list for cards dropdown
@@ -25,7 +26,6 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         onClick: () =>
           updateCards(currentCards => {
             const newCard = {
-              data,
               id: uuidv1(),
               type,
             };
@@ -59,6 +59,7 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           display: flex;
           align-items: center;
           justify-self: end;
+          justify-content: space-between;
           margin-bottom: 0.5em;
           padding: 0.5em 1em;
           background-color: var(--light-gray);
@@ -72,15 +73,6 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
             margin-left: 0.5em;
             border-radius: 50%;
             padding: 0.3em;
-          }
-        }
-      `}</style>
-      <style jsx global>{`
-        .dashboardRow {
-          & button.deleteRow {
-            & svg {
-              padding: 0;
-            }
           }
         }
       `}</style>
@@ -110,8 +102,8 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           padding: 0.5em 0 0.5em;
 
           & .toggleButton {
-            width: var(--card-dimension);
-            height: var(--card-dimension);
+            width: calc(var(--card-dimension) / 2);
+            height: calc(var(--card-dimension) / 2);
             text-align: center;
             padding: 0;
             border-radius: 10%;

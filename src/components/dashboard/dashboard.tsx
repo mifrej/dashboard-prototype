@@ -6,15 +6,8 @@ import Row from './row/row';
 interface Row {
   id: string;
 }
-interface Props {
-  data: {}; // static data sample for all cards
-}
 
-const Dashboard: React.FunctionComponent<Props> = (
-  props: Props,
-): JSX.Element => {
-  const { data } = props;
-
+const Dashboard: React.FunctionComponent<any> = (): JSX.Element => {
   const initialRows: Row[] = [{ id: uuidv1() }];
   const [rows, updateRows] = useState(initialRows);
 
@@ -39,11 +32,16 @@ const Dashboard: React.FunctionComponent<Props> = (
           padding: 0 0 0.5em;
           border-bottom: solid var(--border-width-default) var(--medium-gray);
           margin-bottom: var(--margin-bottom-default);
+          & button {
+            & span {
+              display: inline-block;
+              padding-right: 0.5em;
+            }
+          }
         }
       `}</style>
       {rows.map(row => (
         <Row
-          data={data}
           id={row.id}
           key={row.id}
           onClick={() =>

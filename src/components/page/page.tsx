@@ -92,6 +92,7 @@ const Page = ({ children }: { children: React.SFC<any> }) => {
           background-color: var(--light-gray);
           border: solid var(--border-width-default) var(--medium-gray);
           padding: 0.5em 0.8em;
+          cursor: pointer;
         }
         button.primary,
         button.alert {
@@ -99,7 +100,6 @@ const Page = ({ children }: { children: React.SFC<any> }) => {
           & svg {
             fill: var(--white);
             vertical-align: bottom;
-            padding: 0 0.5em;
           }
         }
         button.primary {

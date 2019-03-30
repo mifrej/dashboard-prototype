@@ -4,28 +4,27 @@ import GridComponent from '../grid/grid';
 import Icon from '../icon/icon';
 
 export interface CardProps {
-  data: {}; // mark for the data shape
   id: string;
   onClick: () => void;
   type: string;
 }
 
 const Card = (props: CardProps) => {
-  const { data, id, onClick, type } = props;
+  const { id, onClick, type } = props;
   return (
     <div className="card">
       <header>
         <h3>{`Card id: ${id.split('-')[0]}`}</h3>
-        <button className="primary deleteRow" onClick={onClick}>
+        <button className="alert deleteRow" onClick={onClick}>
           <Icon size="20" name="baseline-delete-24px" />
         </button>
       </header>
       {(() => {
         switch (type) {
           case 'chart':
-            return <ChartComponent data={data} />;
+            return <ChartComponent />;
           case 'grid':
-            return <GridComponent data={data} />;
+            return <GridComponent />;
           default:
             return null;
         }
@@ -40,6 +39,7 @@ const Card = (props: CardProps) => {
           display: flex;
           align-items: center;
           justify-self: end;
+          justify-content: space-between;
           margin-bottom: 0.2em;
           padding: 0.2em 0.6em;
           background-color: var(--light-gray);
