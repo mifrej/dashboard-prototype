@@ -1,3 +1,57 @@
+# How to start
+
+1) First run:
+
+    ```bash
+      yarn install
+    ```
+
+2) To start app in dev mode
+
+    ```bash
+      yarn dev
+    ```
+
+    Application runs on **`http://localhost:3000`**
+
+3) For production build
+
+    ```bash
+      yarn build
+    ```
+
+4) For production server
+
+    ```bash
+      yarn start
+    ```
+
+5) Testing
+
+    ```bash
+      yarn test
+    ```
+
+6) Linting
+
+    For TypeScript linting
+
+    ```bash
+      yarn tslint
+    ```
+
+    For StyleLint
+
+    ```bash
+      yarn stylelint
+    ```
+
+7) Static Typing check
+
+    ```bash
+      yarn ts:check
+    ```
+
 # Test Case
 
 ## Dashboard
@@ -47,12 +101,14 @@ _app (custom wrapper for next.js)
 - [x] fix on click outside with dropdown
 - [x] card like wrapper for "add card" dropdown (styling)
 - [x] card header with title and remove functionality
-- [ ] grid type generic component
+- [x] grid type generic component
+- [ ] improve styling for Card component
 - [ ] better styling for main header
 - [x] svg icons for better visual effect
 - [ ] responsive adaptations
 - [ ] tests
 - [ ] Check `Text content did not match. Server: "9b1d6583" Client: "c7d94dee"` warning on page load
+- [ ] better data format for time column
 
 ### Follow up questions
 
