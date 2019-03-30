@@ -18,7 +18,17 @@ module.exports = {
     },
     production: {
       presets: [
-        "next/babel",
+        [
+          "next/babel",
+          {
+            "styled-jsx": {
+              plugins: [
+                "styled-jsx-plugin-postcss",
+                "styled-jsx-plugin-stylelint"
+              ]
+            }
+          }
+        ],
         "@zeit/next-typescript/babel"
       ]
     },

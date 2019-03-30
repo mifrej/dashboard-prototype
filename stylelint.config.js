@@ -17,7 +17,6 @@ module.exports = {
     "stylelint-prettier","stylelint-value-no-unknown-custom-properties"
   ],
   rules: {
-    "prettier/prettier": true,
-    "unit-whitelist": ["em", "deg", "rem", "%"]
+    "prettier/prettier": true
   }
 }

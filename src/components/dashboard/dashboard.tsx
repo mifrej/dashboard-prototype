@@ -27,19 +27,6 @@ const Dashboard: React.FunctionComponent<any> = (): JSX.Element => {
           <Icon size="20" name="baseline-add_circle-24px" />
         </button>
       </header>
-      <style jsx>{`
-        header {
-          padding: 0 0 0.5em;
-          border-bottom: solid var(--border-width-default) var(--medium-gray);
-          margin-bottom: var(--margin-bottom-default);
-          & button {
-            & span {
-              display: inline-block;
-              padding-right: 0.5em;
-            }
-          }
-        }
-      `}</style>
       {rows.map(row => (
         <Row
           id={row.id}
@@ -51,6 +38,37 @@ const Dashboard: React.FunctionComponent<any> = (): JSX.Element => {
           }
         />
       ))}
+      <footer>
+        <button
+          className="primary"
+          onClick={() =>
+            updateRows(currentRows => {
+              const newRow = { id: uuidv1() };
+              return [...currentRows, newRow];
+            })
+          }
+        >
+          <span>Add Row</span>
+          <Icon size="20" name="baseline-add_circle-24px" />
+        </button>
+      </footer>
+      <style jsx>{`
+        header,
+        footer {
+          padding: 0 0 0.5em;
+          border-bottom: solid var(--border-width-default) var(--medium-gray);
+          margin-bottom: var(--margin-bottom-default);
+          & button {
+            & span {
+              display: inline-block;
+              padding-right: 0.5em;
+            }
+          }
+        }
+        footer {
+          border-bottom: none;
+        }
+      `}</style>
     </div>
   );
 };
