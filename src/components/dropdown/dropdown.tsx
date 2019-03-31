@@ -33,6 +33,16 @@ const Dropdown = (props: Props) => {
         .dropdown {
           display: inline-flex;
           position: relative;
+          & .toggleButton {
+            width: calc(var(--card-dimension) / 2);
+            height: calc(var(--card-dimension) / 2);
+            text-align: center;
+            padding: 0;
+            border-radius: 10%;
+          }
+        }
+        .dropdown > &:global(svg) {
+          fill: var(--dark-gray);
         }
         ul {
           position: absolute;

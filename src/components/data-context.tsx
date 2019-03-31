@@ -13,7 +13,7 @@ const datasetData = EnergyHourly.points.reduce((_data, point) => {
 const data = {
   datasets: [
     {
-      borderColor: '#3e95cd',
+      borderColor: '#a61d39',
       data: datasetData,
       fill: false,
       label: EnergyHourly.name,

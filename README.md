@@ -54,7 +54,7 @@
 
 # Test Case
 
-## Dashboard
+## 1) Dashboard
 
 Create a dashboard web application.
 The application should:
@@ -79,7 +79,11 @@ There should not be a big effort put on design, but it should be user friendly.
 
 Bonus points for the use of tools like webpack and npm or yarn as well as including tests.
 
-### ✅Result
+### Follow up questions
+
+Imagine the data points amount has increased to 4 MB of data. What strategies would you use to insure the app would not lose performance? Think about data download and data visualisation.
+
+### ✅ Result for 1
 
 #### Components composition
 
@@ -96,25 +100,29 @@ _app (custom wrapper for next.js)
     ├─meta (basic meta tags)
     └─header (header title and navigation placeholder)
 ```
+
+#### Description
+
+  * Prototype build on Next.js framework (most of the fine grained setup is already built in)
+  * Built with TypeScript (better code stability, less tests required)
+  * For better code quality, consistency and integrity linters and formaters are incorporated used (tslint, stylelint, prettier)
+  * For generating examplary chart `chart.js` library is used
+  * For the rest of functionality custom components are developed
+  * All components are built as functional components
+  * Component states are managed with React Hooks
+  * Examplary data sample (Hourly prices) is passed to React Context API for simplicity sake
+  * `styled jsx` (built in Next.js) with `postcss preset-env` used for writing `CSS`
+  * `flex-box` css properties are used for layouting (could be css-grid but flex-box is backward compatible)
+  * Icons are build with svg sprite
+
 ## TO DO
 
-- [x] fix on click outside with dropdown
-- [x] card like wrapper for "add card" dropdown (styling)
-- [x] card header with title and remove functionality
-- [x] grid type generic component
-- [ ] improve styling for Card component
-- [ ] better styling for main header
-- [x] svg icons for better visual effect
-- [ ] responsive adaptations
 - [ ] tests
 - [ ] Check `Text content did not match. Server: "9b1d6583" Client: "c7d94dee"` warning on page load
 - [ ] better data format for time column
+- [ ] better hover with transition effects (buttons, add card, add row)
 
-### Follow up questions
-
-Imagine the data points amount has increased to 4 MB of data. What strategies would you use to insure the app would not lose performance? Think about data download and data visualisation.
-
-## Energy Price Calculator
+## 2) Energy Price Calculator
 
 There are available energy market orders you can buy like the list array below. You can execute part of an order, for example: you can acquire 5 MW from a 10 MW volume order.
 Write a function in Javascript and necessary tests to run it that will have as input:
@@ -128,7 +136,7 @@ It should work for different input volumes.
 
 For example: How much would I have to pay to buy 8 MW given the list below? What would the output be if I wanted to buy 1000 MW?
 
-### ✅Result
+### ✅ Result for 2
 
 Find the code for  [calculating lowest weighted average price for MW](https://github.com/mifrej/wattsight/tree/master/src/lib/energy-calculator). Run the result function with:
 

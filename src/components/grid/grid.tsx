@@ -29,6 +29,7 @@ const Grid = () => {
       <style jsx>{`
         .grid {
           max-height: calc(var(--card-dimension) - 3em);
+          width: 100%;
           overflow-y: scroll;
           & table {
             width: 100%;

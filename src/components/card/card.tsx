@@ -1,4 +1,4 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import ChartComponent from '../chart/chart';
 import GridComponent from '../grid/grid';
 import Icon from '../icon/icon';
@@ -19,21 +19,30 @@ const Card = (props: CardProps) => {
           <Icon size="20" name="baseline-delete-24px" />
         </button>
       </header>
-      {(() => {
-        switch (type) {
-          case 'chart':
-            return <ChartComponent />;
-          case 'grid':
-            return <GridComponent />;
-          default:
-            return null;
-        }
-      })()}
+      <div className="cardContent">
+        {(() => {
+          switch (type) {
+            case 'chart':
+              return <ChartComponent />;
+            case 'grid':
+              return <GridComponent />;
+            default:
+              return null;
+          }
+        })()}
+      </div>
       <style jsx>{`
         .card {
           width: var(--card-dimension);
           height: var(--card-dimension);
-          margin-right: 0.5em;
+          margin: 0 0.5em 0.5em 0;
+          box-shadow: 3px 3px 18px -5px rgba(0, 0, 0, 0.45);
+          border: solid 1px var(--medium-gray);
+          border-radius: var(--border-radius-default);
+        }
+        .cardContent {
+          display: flex;
+          height: calc(100% - 3em);
         }
         header {
           display: flex;
@@ -43,16 +52,23 @@ const Card = (props: CardProps) => {
           margin-bottom: 0.2em;
           padding: 0.2em 0.6em;
           background-color: var(--light-gray);
+          border-radius: var(--border-radius-default);
           & h3 {
             font-size: 1em;
             margin: 0;
             line-height: 1;
           }
           & button {
+            opacity: 0;
             font-size: 1em;
             margin-left: 0.5em;
             border-radius: 50%;
             padding: 0.3em;
+          }
+          &:hover {
+            & button {
+              opacity: 1;
+            }
           }
         }
       `}</style>

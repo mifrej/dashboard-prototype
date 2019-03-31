@@ -1,13 +1,11 @@
 import Chart from 'chart.js';
 import React, { useContext, useEffect, useRef } from 'react';
 import DataContext from '../data-context';
-interface Props {
-  id: string;
-}
 
-const ChartComponent: React.SFC<Props> = (props: Props): JSX.Element => {
-  const canvasEl = useRef(null);
-  const { id } = props;
+const ChartComponent: React.SFC<any> = (): JSX.Element => {
+  const canvasEl: React.MutableRefObject<null> | HTMLCanvasElement = useRef(
+    null,
+  );
   const data = useContext(DataContext);
   let chartInstance = null;
   useEffect(() => {
@@ -17,7 +15,16 @@ const ChartComponent: React.SFC<Props> = (props: Props): JSX.Element => {
     });
     chartInstance.update();
   });
-  return <canvas id={id} ref={canvasEl} />;
+  return (
+    <>
+      <canvas ref={canvasEl} />
+      <style jsx>{`
+        canvas {
+            align-self: center;
+        }
+      `}</style>
+    </>
+  );
 };
 
 export default ChartComponent;

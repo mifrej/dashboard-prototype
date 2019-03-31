@@ -22,6 +22,22 @@ const Header = () => {
           </Link>
         </h1>
       </header>
+      <style jsx>{`
+        header {
+          padding: 0.5em 0;
+          border-bottom: 10px solid var(--dark-gray);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @media (--large-desktop) {
+            justify-content: start;
+          }
+        }
+        h1 {
+          margin: 0 0 0 0.5em;
+          transform: skew(-7deg);
+        }
+      `}</style>
     </>
   );
 };

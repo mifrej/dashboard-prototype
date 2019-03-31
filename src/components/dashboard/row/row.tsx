@@ -54,37 +54,15 @@ const Row: React.FunctionComponent<RowProps> = (
           <Icon size="20" name="baseline-delete-24px" />
         </button>
       </header>
-      <style jsx>{`
-        header {
-          display: flex;
-          align-items: center;
-          justify-self: end;
-          justify-content: space-between;
-          margin-bottom: 0.5em;
-          padding: 0.5em 1em;
-          background-color: var(--light-gray);
-          & h2 {
-            font-size: 1.2em;
-            margin: 0;
-            line-height: 1;
-          }
-          & button {
-            font-size: 1em;
-            margin-left: 0.5em;
-            border-radius: 50%;
-            padding: 0.3em;
-          }
-        }
-      `}</style>
       <div className="rowContent">
         {cards.length > 0 &&
           cards.map((card: CardProps, idx: number) => (
             <Card
-              key={idx.toString()}
-              {...card}
+            key={idx.toString()}
+            {...card}
               onClick={() =>
                 updateCards((currentCards: CardProps[]) =>
-                  currentCards.filter(item => item.id !== card.id),
+                currentCards.filter(item => item.id !== card.id),
                 )
               }
             />
@@ -94,21 +72,38 @@ const Row: React.FunctionComponent<RowProps> = (
           list={dropDownList}
         />
       </div>
-      <style jsx global>{`
+      <style jsx>{`
+        .dashboardRow {
+          min-width: var(--card-dimension);
+        }
         .rowContent {
           display: flex;
           align-content: center;
           flex-wrap: wrap;
-          padding: 0.5em 0 0.5em;
-
-          & .toggleButton {
-            width: calc(var(--card-dimension) / 2);
-            height: calc(var(--card-dimension) / 2);
-            text-align: center;
-            padding: 0;
-            border-radius: 10%;
-            & svg {
-              fill: var(--dark-gray);
+          padding: 0.5em 0 0.5em 0.5em;
+        }
+        header {
+          display: flex;
+          align-items: center;
+          justify-self: end;
+          justify-content: space-between;
+          padding: 0.5em 1em;
+          background-color: var(--light-gray);
+          & h2 {
+            font-size: 1.2em;
+            margin: 0;
+            line-height: 1;
+          }
+          & button {
+            opacity: 0;
+            font-size: 1em;
+            margin-left: 0.5em;
+            border-radius: 50%;
+            padding: 0.3em;
+          }
+          &:hover {
+            & button {
+              opacity: 1;
             }
           }
         }
