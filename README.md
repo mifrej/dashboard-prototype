@@ -119,7 +119,6 @@ _app (custom wrapper for next.js)
 
 - [ ] tests
 - [ ] Check `Text content did not match. Server: "9b1d6583" Client: "c7d94dee"` warning on page load
-- [ ] better data format for time column
 - [ ] better hover with transition effects (buttons, add card, add row)
 
 ## 2) Energy Price Calculator
