@@ -5,7 +5,7 @@ import Icon from '../icon/icon';
 
 export interface CardProps {
   id: string;
-  onClick: () => void;
+  onClick?: () => void;
   type: string;
 }
 

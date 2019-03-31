@@ -7,20 +7,21 @@ const ChartComponent: React.SFC<any> = (): JSX.Element => {
     null,
   );
   const data = useContext(DataContext);
-  let chartInstance = null;
   useEffect(() => {
-    chartInstance = new Chart(canvasEl.current, {
-      data,
-      type: 'line',
-    });
-    chartInstance.update();
+    const canvasNode: HTMLCanvasElement | null = canvasEl.current;
+    if (canvasNode !== null) {
+      const _ = new Chart(canvasNode, {
+        data,
+        type: 'line',
+      });
+    }
   });
   return (
     <>
       <canvas ref={canvasEl} />
       <style jsx>{`
         canvas {
-            align-self: center;
+          align-self: center;
         }
       `}</style>
     </>

@@ -1,8 +1,9 @@
+import React from 'react';
 import Header from '../header/header';
 import Meta from '../meta/meta';
 import '../theme/variables.css';
 
-const Page = ({ children }: { children: React.SFC<any> }) => {
+const Page = ({ children }: { children: any }) => {
   return (
     <main>
       <Meta />

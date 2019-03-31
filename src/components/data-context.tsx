@@ -1,8 +1,12 @@
+import moment from 'moment';
 import { createContext } from 'react';
 import EnergyHourly from './energy-hourly-sample';
 
 const labels: string[] = EnergyHourly.points.reduce(
-  (_labels, point) => [..._labels, (point[0] / 1000000000).toFixed(1)],
+  (_labels: string[], point: number[]) => [
+    ..._labels,
+    moment(point[0]).format('DD MMM, hh a'),
+  ],
   [],
 );
 

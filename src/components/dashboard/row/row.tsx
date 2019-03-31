@@ -6,7 +6,7 @@ import Icon from '../../icon/icon';
 
 interface RowProps {
   id: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Row: React.FunctionComponent<RowProps> = (
