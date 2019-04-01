@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 import React, { useContext, useEffect, useRef } from 'react';
-import DataContext from '../data-context';
+import DataContext from '../../data/data-context';
 
 const ChartComponent: React.SFC<any> = (): JSX.Element => {
   const canvasEl: React.MutableRefObject<null> | HTMLCanvasElement = useRef(

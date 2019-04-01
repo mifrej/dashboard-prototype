@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import DataContext from '../data-context';
+import DataContext from '../../data/data-context';
 
 const Grid = () => {
   const data = useContext(DataContext);

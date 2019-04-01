@@ -1,4 +1,12 @@
-export default {
+export interface EnergyHourlyProps {
+  frequency: string;
+  id: number;
+  name: string;
+  points: number[][];
+  time_zone: string;
+}
+
+const energyHourly: EnergyHourlyProps = {
   frequency: 'H',
   id: 1085,
   name: 'pri de intraday €/mwh cet h a',
@@ -678,3 +686,5 @@ export default {
   ],
   time_zone: 'CET',
 };
+
+export default energyHourly;
