@@ -1,6 +1,8 @@
 export type ID = number;
 export type Price = number;
+export type PriceFormatted = string;
 export type Volume = number;
+export type Warning = string;
 
 export interface TOrder {
   order_id: ID;
@@ -8,44 +10,45 @@ export interface TOrder {
   volume: Volume; // Mega Watts
 }
 
-// Task was to design the function, but for the better code testability I would compose a class with more fine grained methods in it, in order to better encapsulate small utilities.
-// I marked the steps that IMHO deserve for separate abstraction.
-function energyCalculator(orders: TOrder[], desiredVolume: Volume): Price {
-  let volumeToGo: number = 0;
-  const selectedOrders = orders
+function energyCalculator(
+  orders: TOrder[],
+  desiredVolume: Volume,
+): PriceFormatted | Error {
+  let volumeToGo: Volume = desiredVolume;
+  let ordersVolume = 0; // collected orders' volume
+
+  const volumeMultipliedPrice = orders
     // sorting orders by price ascending
-    .sort((prev: TOrder, next: TOrder) => {
-      return prev.price - next.price;
-    })
-    // reduce orders to fullfil desiredVolume
+    .sort((prev: TOrder, next: TOrder) => prev.price - next.price)
     .reduce(
       (
-        _selectedOrders: TOrder[],
+        _volumeMultipliedPrice: number,
         order: TOrder,
         _: number,
-        sortedOrders: TOrder[],
+        initialOrders: TOrder[],
       ) => {
-        if (desiredVolume > volumeToGo) {
-          volumeToGo += order.volume;
-          return [..._selectedOrders, order];
+        if (volumeToGo === 0) {
+          initialOrders.splice(0); // early break reduce by modifying original array
+        } else {
+          if (volumeToGo - order.volume < 0) {
+            // partial order
+            order.volume = volumeToGo;
+            volumeToGo = 0;
+          } else {
+            volumeToGo -= order.volume;
+          }
+          ordersVolume += order.volume;
+          // tslint:disable-next-line:no-parameter-reassignment
+          _volumeMultipliedPrice += order.volume * order.price;
         }
-        sortedOrders.splice(0); // early break reduce by modifying original array
-        return _selectedOrders;
+        return _volumeMultipliedPrice;
       },
-      [],
+      0,
     );
 
-  // calculate weighted average price from selected orders
-  const totalOrdersVolume: number = selectedOrders.reduce(
-    (_totalVolume, order) => _totalVolume + order.volume,
-    0,
-  );
-  const volumeMultipliedByPrice: number = selectedOrders.reduce(
-    (_totalVolumeMultipliedByPrice, order) =>
-      _totalVolumeMultipliedByPrice + order.volume * order.price,
-    0,
-  );
-  return volumeMultipliedByPrice / totalOrdersVolume;
+  if (ordersVolume < desiredVolume) {
+    throw new Error('There is not enough MW volume in available orders');
+  }
+  return (volumeMultipliedPrice / ordersVolume).toFixed(1);
 }
-
 export default energyCalculator;
