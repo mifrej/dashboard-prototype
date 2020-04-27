@@ -58,7 +58,7 @@
     "stylelint-order": "^2.1.0",
     "stylelint-prettier": "^1.0.6",
     "stylelint-value-no-unknown-custom-properties": "^2.0.0",
-    "ts-node": "^8.0.3",
+    "ts-node": "^8.9.1",
     "tslint": "^5.14.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
